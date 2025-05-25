@@ -8,12 +8,6 @@ import botocore.exceptions
 iam_client = boto3.client('iam')
 s3_client = boto3.client('s3')
 
-def fetch_all_custom_iam_policies():
-    paginator = iam_client.get_paginator('list_policies')
-    custom_policies = []
-    for page in paginator.paginate(Scope='Local', PaginationConfig={'PageSize': 50}):
-        custom_policies.extend(page['Policies'])
-    return custom_policies
 
 def get_policy_last_used(policy_arn):
     try:
