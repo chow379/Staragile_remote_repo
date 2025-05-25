@@ -8,9 +8,6 @@ import botocore.exceptions
 iam_client = boto3.client('iam')
 s3_client = boto3.client('s3')
 
-# Cache for role last used dates to avoid redundant API calls
-role_last_used_cache = {}
-
 def fetch_all_custom_iam_policies():
     paginator = iam_client.get_paginator('list_policies')
     custom_policies = []
