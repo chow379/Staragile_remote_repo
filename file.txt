@@ -1,1 +1,2 @@
-Line 2: Main branch edit
+Line 1: Hello from main branch
+Line 2: Main and Feature edits merged
