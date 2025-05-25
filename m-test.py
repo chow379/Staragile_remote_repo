@@ -18,13 +18,6 @@ df = spark.read.option("header", "true") \
 # Clean column names (strip leading/trailing spaces)
 df = df.select([col(c).alias(c.strip()) for c in df.columns])
 
-# Debugging: Print the column names to ensure they are correct
-print("Columns in DataFrame:", df.columns)
-
-# Rename columns (ensure they match the actual column names)
-df = df.withColumnRenamed("Last Used", "Last_Used")
-df = df.withColumnRenamed("Creation Date", "Creation_Date")
-
 # Convert "Last_Used" and "Creation_Date" to timestamp format
 df = df.withColumn("Last_Used", to_timestamp(col("Last_Used"), "yyyy-MM-dd HH:mm:ssXXX"))
 df = df.withColumn("Creation_Date", to_timestamp(col("Creation_Date"), "yyyy-MM-dd HH:mm:ssXXX"))
