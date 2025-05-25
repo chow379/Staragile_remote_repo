@@ -47,7 +47,6 @@ def push_changes(repo, branch_name):
         print("Changes pushed successfully.")
     except GitCommandError as e:
         print(f"Error pushing changes: {e}")
-        print(f"git --repo")
 
 def main():
     repo = clone_repository(REPO_URL, LOCAL_DIR)
